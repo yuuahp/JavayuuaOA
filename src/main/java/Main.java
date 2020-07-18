@@ -138,7 +138,7 @@ public class Main extends ListenerAdapter {
         if(event.getMessage().getContentRaw().startsWith(prefix+"oa")){
             Role role = event.getGuild().getRoleById(686103774691065871L);
             Role role2 = event.getGuild().getRoleById(720326371217244321L);
-            String Name = event.getMember().getNickname();
+            String Name = event.getMember().getUser().getName();
             String member = event.getAuthor().getId();
             event.getGuild().addRoleToMember(member, role).queue();
             event.getGuild().addRoleToMember(member,role2).queue();
