@@ -1,0 +1,1 @@
+worker: java -jar target/JavayuuaOA-jar-with-dependencies.jar
