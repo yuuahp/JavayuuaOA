@@ -149,7 +149,7 @@ public class Main extends ListenerAdapter {
             String reqmsg = event.getMessage().getContentRaw();
             String Name = event.getMember().getUser().getName();
             event.getChannel().sendMessage("**ありがとうございます！**リクエストを送信しました!").queue();
-            event.getJDA().getTextChannelById("712698533941215293").sendMessage(":pencil:**"+Name+"さん**から新たな**開発リクエスト**がありました！\n'>"+reqmsg+"`").queue();
+            event.getJDA().getTextChannelById("712698533941215293").sendMessage(":pencil:**"+Name+"さん**から新たな**開発リクエスト**がありました！\n`>"+reqmsg+"`").queue();
         }//dev
 
 
