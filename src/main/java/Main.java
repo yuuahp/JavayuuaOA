@@ -14,6 +14,7 @@ import net.dv8tion.jda.api.OnlineStatus;
 import net.dv8tion.jda.api.entities.Activity;
 import com.jagrosh.jdautilities.commandclient.CommandBuilder;
 import net.dv8tion.jda.api.entities.Activity;
+import net.dv8tion.jda.api.requests.GatewayIntent;
 
 
 import javax.security.auth.login.LoginException;
@@ -158,10 +159,11 @@ public class Main extends ListenerAdapter {
             //9
             String cutmsg = msg.substring(9);
             event.getChannel().sendMessage("NowWatchingを設定しました！`"+cutmsg+"`").queue();
-            JDABuilder builder = JDABuilder.createDefault(args[0]);
-            builder.setActivity(Activity.watching(cutmsg));
             try {
-                builder.build();
+                JDABuilder.createLight(args[0], GatewayIntent.GUILD_MESSAGES, GatewayIntent.DIRECT_MESSAGES)
+                        .addEventListeners(new Main())
+                        .setActivity(Activity.playing("Type !ping"))
+                        .build();
             } catch (LoginException e) {
                 e.printStackTrace();
             }
