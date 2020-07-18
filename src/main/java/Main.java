@@ -160,7 +160,11 @@ public class Main extends ListenerAdapter {
             event.getChannel().sendMessage("NowWatchingを設定しました！`"+cutmsg+"`").queue();
             JDABuilder builder = JDABuilder.createDefault(args[0]);
             builder.setActivity(Activity.watching(cutmsg));
-
+            try {
+                builder.build();
+            } catch (LoginException e) {
+                e.printStackTrace();
+            }
 
 
         }
