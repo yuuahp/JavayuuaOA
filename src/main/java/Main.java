@@ -152,6 +152,17 @@ public class Main extends ListenerAdapter {
             event.getJDA().getTextChannelById("712698533941215293").sendMessage(":pencil:**"+Name+"さん**から新たな**開発リクエスト**がありました！\n`>"+reqmsg+"`").queue();
         }//dev
 
+        if(event.getMessage().getContentRaw().startsWith(prefix+"watch")){
+            String msg = event.getMessage().getContentRaw();
+            //9
+            String cutmsg = msg.substring(9);
+            Activity.watching(cutmsg);
+            event.getChannel().sendMessage("NowWatchingを設定しました！`"+cutmsg+"`").queue();
+
+        }
+
+
+
 
     }
 
