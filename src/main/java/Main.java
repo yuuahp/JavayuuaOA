@@ -157,10 +157,11 @@ public class Main extends ListenerAdapter {
             String msg = event.getMessage().getContentRaw();
             //9
             String cutmsg = msg.substring(9);
+            event.getChannel().sendMessage("NowWatchingを設定しました！`"+cutmsg+"`").queue();
             JDABuilder builder = JDABuilder.createDefault(args[0]);
             builder.setActivity(Activity.watching(cutmsg));
 
-            event.getChannel().sendMessage("NowWatchingを設定しました！`"+cutmsg+"`").queue();
+
 
         }
 
