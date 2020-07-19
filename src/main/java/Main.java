@@ -83,7 +83,7 @@ public class Main extends ListenerAdapter {
         }
 
         if(event.getMessage().getContentRaw().startsWith("自己紹介してjavayuua")){
-            event.getChannel().sendMessage("**こんにちは！**\n私は**javayuua**と言います！\n色んな事が出来る多機能系BOTです。\n**DESTROY MEE6**\n.\n.\nよろしく！").queue();
+            event.getChannel().sendMessage("**こんにちは！**\n私は**javayuua**と言います！\n色んな事が出来る多機能系BOTです。\n**DESTROY MEE6**\n.\n.\nよろしく！\nhttps://discordapp.com/channels/686102510330445875/686470299201306625/734075610678296618").queue();
         }
 
 
