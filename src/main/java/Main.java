@@ -183,6 +183,10 @@ public class Main extends ListenerAdapter {
             event.getChannel().sendMessage(yuua+"呼ばれてますよ！").queue();
         }
 
+        if(event.getMessage().isPinned()){
+            event.getChannel().sendMessage("pushpin!");
+        }
+
 
 
 
