@@ -81,7 +81,7 @@
                     </descriptorRefs>
                     <archive>
                         <manifest>
-                            <mainClass>Main</mainClass>
+                            <mainClass>systems.yuuahp.Main</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
@@ -122,7 +122,7 @@
                 <version>3.0.2</version>
                 <configuration>
                     <processTypes>
-                        <web>java $JAVA_OPTS -cp target/classes:target/dependency/* Main</web>
+                        <web>java $JAVA_OPTS -cp target/classes:target/dependency/* systems.yuuahp.Main</web>
                     </processTypes>
                 </configuration>
             </plugin>

@@ -1,21 +1,11 @@
-import Events.PushPin;
-import com.jagrosh.jdautilities.commandclient.CommandClient;
-import com.jagrosh.jdautilities.commandclient.CommandClientBuilder;
-import com.jagrosh.jdautilities.commandclient.CommandEvent;
-import net.dv8tion.jda.api.*;
-import net.dv8tion.jda.api.entities.Activity;
+package systems.yuuahp;
+
 import net.dv8tion.jda.api.entities.Role;
-import net.dv8tion.jda.api.entities.User;
 import net.dv8tion.jda.api.events.guild.member.GuildMemberJoinEvent;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import net.dv8tion.jda.api.AccountType;
-import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
-import net.dv8tion.jda.api.OnlineStatus;
-import net.dv8tion.jda.api.entities.Activity;
-import com.jagrosh.jdautilities.commandclient.CommandBuilder;
-import net.dv8tion.jda.api.entities.Activity;
 
 
 import javax.security.auth.login.LoginException;
