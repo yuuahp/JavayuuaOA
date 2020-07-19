@@ -27,7 +27,7 @@ public class Main extends ListenerAdapter {
         String token;
         token = System.getenv("token");
         builder.setToken(token);
-
+        builder.addEventListeners(new Main());
         builder.addEventListeners(new PushPin());
         builder.build();
 
