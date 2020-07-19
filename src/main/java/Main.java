@@ -55,7 +55,7 @@ public class Main extends ListenerAdapter {
 
     public void onGuildMemberJoin(GuildMemberJoinEvent event) {
 
-        User user = event.getUser();
+        String user = event.getMember().getUser().getName();
 
 
 
