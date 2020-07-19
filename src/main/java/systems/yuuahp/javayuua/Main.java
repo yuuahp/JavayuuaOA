@@ -1,4 +1,4 @@
-package systems.yuuahp;
+package systems.yuuahp.javayuua;
 
 import net.dv8tion.jda.api.entities.Role;
 import net.dv8tion.jda.api.events.guild.member.GuildMemberJoinEvent;
@@ -6,7 +6,7 @@ import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import net.dv8tion.jda.api.AccountType;
 import net.dv8tion.jda.api.JDABuilder;
-import systems.yuuahp.Events.PushPin;
+import systems.yuuahp.javayuua.Events.PushPin;
 
 
 import javax.security.auth.login.LoginException;
@@ -27,7 +27,7 @@ public class Main extends ListenerAdapter {
         String token;
         token = System.getenv("token");
         builder.setToken(token);
-        builder.addEventListeners(new Main());
+
         builder.addEventListeners(new PushPin());
         builder.build();
 
