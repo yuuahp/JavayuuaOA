@@ -202,13 +202,14 @@ public class Main extends ListenerAdapter {
         if(s.startsWith(shortprefix+"clear")) {
             String[] ss = event.getMessage().getContentRaw().split(" ");
             int i = Integer.parseInt(ss[1]);
-            if(i <= 10 && i > 0) {
-                List<Message> messages  = event.getTextChannel().getHistory().retrievePast(i).complete();
+            int is = i+1;
+            if(is <= 10 && is > 0) {
+                List<Message> messages  = event.getTextChannel().getHistory().retrievePast(is).complete();
                 for(Message m : messages) {
                     m.delete().queue();
                 }
                 String name = event.getMember().getUser().getName();
-                event.getChannel().sendMessage("-----------------\n:pencil: "+i+"メッセージを**削除**しました。("+name+")\n-----------------").queue();
+                event.getChannel().sendMessage("-----------------\n:pencil: "+is+"メッセージを**削除**しました。("+name+")\n-----------------").queue();
             }else {
                 event.getTextChannel().sendMessage(":ledger: 消去数は10までです！申し訳ありません。").queue();
             }
