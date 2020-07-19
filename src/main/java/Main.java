@@ -1,3 +1,4 @@
+import Events.PushPin;
 import com.jagrosh.jdautilities.commandclient.CommandClient;
 import com.jagrosh.jdautilities.commandclient.CommandClientBuilder;
 import com.jagrosh.jdautilities.commandclient.CommandEvent;
@@ -36,6 +37,7 @@ public class Main extends ListenerAdapter {
         token = System.getenv("token");
         builder.setToken(token);
         builder.addEventListeners(new Main());
+        builder.addEventListeners(new PushPin());
         builder.build();
 
 
@@ -64,6 +66,8 @@ public class Main extends ListenerAdapter {
         event.getJDA().getTextChannelById(686102510330445923L).sendMessage(":tada:**"+user+"さん！**ようこそ**OAstudio**へ！\n下のチャンネルでサーバールールをよく読み、**閲覧権限**を入手しましょう！\n閲覧権限をもらったら **自己紹介**を書いてみましょう！").queue();
 
     }
+
+
 
     public void onMessageReceived(MessageReceivedEvent event){
         String[] args = new String[0];
