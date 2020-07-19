@@ -1,5 +1,6 @@
 package systems.yuuahp.javayuua;
 
+import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.entities.Message;
 import net.dv8tion.jda.api.entities.Role;
 import net.dv8tion.jda.api.events.guild.member.GuildMemberJoinEvent;
@@ -11,7 +12,9 @@ import systems.yuuahp.javayuua.Events.PushPin;
 
 
 import javax.security.auth.login.LoginException;
+import java.awt.*;
 import java.util.*;
+import java.util.List;
 
 
 public class Main extends ListenerAdapter {
@@ -209,7 +212,15 @@ public class Main extends ListenerAdapter {
                     m.delete().queue();
                 }
                 String name = event.getMember().getUser().getName();
-                event.getChannel().sendMessage("-----------------\n:pencil: "+i+"メッセージを**削除**しました。("+name+")\n-----------------").queue();
+
+
+                EmbedBuilder eb =  new EmbedBuilder();
+                eb.setTitle(":pencil: メッセージを削除しました。", null);
+                eb.setColor(new Color(246, 162, 255));
+                eb.setDescription("**"+name+"さん** - "+is+"メッセージ");
+                event.getChannel().sendMessage(eb.build()).queue();
+
+                //event.getChannel().sendMessage("-----------------\n:pencil: "+i+"メッセージを**削除**しました。("+name+")\n-----------------").queue();
             }else {
                 event.getTextChannel().sendMessage(":ledger: 消去数は10までです！申し訳ありません。").queue();
             }
