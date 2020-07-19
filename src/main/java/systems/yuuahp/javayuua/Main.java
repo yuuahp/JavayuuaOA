@@ -209,7 +209,7 @@ public class Main extends ListenerAdapter {
                     m.delete().queue();
                 }
                 String name = event.getMember().getUser().getName();
-                event.getChannel().sendMessage("-----------------\n:pencil: "+is+"メッセージを**削除**しました。("+name+")\n-----------------").queue();
+                event.getChannel().sendMessage("-----------------\n:pencil: "+i+"メッセージを**削除**しました。("+name+")\n-----------------").queue();
             }else {
                 event.getTextChannel().sendMessage(":ledger: 消去数は10までです！申し訳ありません。").queue();
             }
