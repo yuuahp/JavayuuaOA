@@ -225,6 +225,16 @@ public class Main extends ListenerAdapter {
                 event.getTextChannel().sendMessage(":ledger: 消去数は10までです！申し訳ありません。").queue();
             }
         }
+        StringBuffer msgchat = new StringBuffer();
+        if(event.getMessage().getContentRaw().startsWith(shortprefix+"chat")){
+            String msg = event.getMessage().getContentRaw();
+            //8
+            String cutmsg = msg.substring(5);
+            event.getMessage().delete().queue();
+            event.getChannel().sendMessage(cutmsg).queue();
+
+        }
+
     }
 
 
