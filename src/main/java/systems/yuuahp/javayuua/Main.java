@@ -172,7 +172,7 @@ public class Main extends ListenerAdapter {
 
         //}
 
-        if(event.getMessage().getContentRaw().contains("ゆうあ")){
+        if(event.getMessage().getContentRaw().contains("!ゆうあ")){
             String yuua = "<@492088741167366144>";
             event.getChannel().sendMessage(yuua+"呼ばれてますよ！").queue();
         }
