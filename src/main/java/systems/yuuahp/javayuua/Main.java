@@ -195,6 +195,10 @@ public class Main extends ListenerAdapter {
             event.getChannel().sendMessage(":white_check_mark: **Javayuua is Ready!** :white_check_mark:").queue();
         }
 
+        if(event.getMessage().getContentRaw().startsWith(prefix+"clear")){
+            event.getMessage().delete();
+        }
+
 
 
 
