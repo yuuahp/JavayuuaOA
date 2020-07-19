@@ -58,10 +58,11 @@ public class Main extends ListenerAdapter {
         User user = event.getUser();
 
 
-        long ziko = 720660907352653864L;
 
-        event.getJDA().getTextChannelById(686102510330445923L).sendMessage(":tada:**"+user+"さん！**ようこそ**OAstudio**へ！\n下のチャンネルでサーバールールをよく読み、**閲覧権限**を入手しましょう！\n閲覧権限をもらったら"+ziko+"で**自己紹介**を書いてみましょう！").queue();
+        long ziko = 720660907352653864L;
         event.getJDA().getTextChannelById(686474057771778069L).sendMessage(":tada:**"+user+"さん**がOAstudioに参加しました！").queue();
+        event.getJDA().getTextChannelById(686102510330445923L).sendMessage(":tada:**"+user+"さん！**ようこそ**OAstudio**へ！\n下のチャンネルでサーバールールをよく読み、**閲覧権限**を入手しましょう！\n閲覧権限をもらったら"+ziko+"で**自己紹介**を書いてみましょう！").queue();
+
     }
 
     public void onMessageReceived(MessageReceivedEvent event){
