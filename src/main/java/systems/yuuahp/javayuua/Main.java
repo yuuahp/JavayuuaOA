@@ -1,5 +1,6 @@
 package systems.yuuahp.javayuua;
 
+import net.dv8tion.jda.api.entities.Message;
 import net.dv8tion.jda.api.entities.Role;
 import net.dv8tion.jda.api.events.guild.member.GuildMemberJoinEvent;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
@@ -10,10 +11,7 @@ import systems.yuuahp.javayuua.Events.PushPin;
 
 
 import javax.security.auth.login.LoginException;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.TimeZone;
-import java.util.Timer;
+import java.util.*;
 
 
 public class Main extends ListenerAdapter {
@@ -196,12 +194,23 @@ public class Main extends ListenerAdapter {
         }
 
         if(event.getMessage().getContentRaw().startsWith(prefix+"clear")){
-            event.getMessage().delete();
+            event.getMessage().delete().queue();
         }
 
 
-
-
+        String s = event.getMessage().getContentRaw();
+        if(s.startsWith(prefix+"clear")) {
+            String[] ss = event.getMessage().getContentRaw().split(" ");
+            int i = Integer.parseInt(ss[1]);
+            if(i <= 10 && i > 0) {
+                List<Message> messages  = event.getTextChannel().getHistory().retrievePast(i).complete();
+                for(Message m : messages) {
+                    m.delete().queue();
+                }
+            }else {
+                event.getTextChannel().sendMessage(":ledger: 消去数は10までです！申し訳ありません。").queue();
+            }
+        }
     }
 
 
