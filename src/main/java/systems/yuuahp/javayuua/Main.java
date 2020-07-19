@@ -25,10 +25,11 @@ public class Main extends ListenerAdapter {
 
         JDABuilder builder = new JDABuilder(AccountType.BOT);
         String token;
-        token = System.getenv("token");
-        builder.setToken(token);
         builder.addEventListeners(new Main());
         builder.addEventListeners(new PushPin());
+        token = System.getenv("token");
+        builder.setToken(token);
+
         builder.build();
 
 
