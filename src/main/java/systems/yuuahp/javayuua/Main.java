@@ -13,7 +13,7 @@ import javax.security.auth.login.LoginException;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.TimeZone;
-
+import java.util.Timer;
 
 
 public class Main extends ListenerAdapter {
@@ -181,7 +181,18 @@ public class Main extends ListenerAdapter {
 
 
         if(event.getMessage().getContentRaw().startsWith(prefix+"start")){
-            event.getChannel().sendMessage(":white_check_mark:**Javayuua is Ready!**:white_check_mark:").queue();
+            event.getChannel().sendMessage(":white_check_mark: **Javayuua is Ready!** :white_check_mark:").queue();
+        }
+
+        if(event.getMessage().getContentRaw().startsWith(prefix+"restart")){
+            event.getChannel().sendMessage(":octagonal_sign: **Javayuua Stoped** :octagonal_sign:").queue();
+            try {
+                Thread.sleep(3000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
+            event.getChannel().sendMessage(":white_check_mark: **Javayuua is Ready!** :white_check_mark:").queue();
         }
 
 
