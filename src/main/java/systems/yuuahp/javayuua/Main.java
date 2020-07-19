@@ -179,8 +179,9 @@ public class Main extends ListenerAdapter {
             event.getChannel().sendMessage(yuua+"呼ばれてますよ！").queue();
         }
 
-        if(event.getMessage().isPinned()){
-            event.getChannel().sendMessage("pushpin!");
+
+        if(event.getMessage().getContentRaw().startsWith(prefix+"start")){
+            event.getChannel().sendMessage(":white_check_mark:**Javayuua is Ready!**:white_check_mark:").queue();
         }
 
 
