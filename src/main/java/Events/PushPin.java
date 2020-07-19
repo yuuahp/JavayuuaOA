@@ -8,7 +8,7 @@ public class PushPin extends ListenerAdapter {
     public String shortprefix = "/";
     @Override
     public void onMessageReceived(MessageReceivedEvent event) {
-        if(event.getMessage().getContentRaw().startsWith(prefix+"start"){
+        if(event.getMessage().getContentRaw().startsWith(prefix+"start")){
             event.getChannel().sendMessage("Javayuua is Ready");
         }
     }
