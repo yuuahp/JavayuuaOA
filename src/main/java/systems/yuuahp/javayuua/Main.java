@@ -199,7 +199,7 @@ public class Main extends ListenerAdapter {
 
 
         String s = event.getMessage().getContentRaw();
-        if(s.startsWith(prefix+"clear")) {
+        if(s.startsWith(shortprefix+"clear")) {
             String[] ss = event.getMessage().getContentRaw().split(" ");
             int i = Integer.parseInt(ss[1]);
             if(i <= 10 && i > 0) {
