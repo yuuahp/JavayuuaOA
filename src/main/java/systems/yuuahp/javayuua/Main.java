@@ -74,7 +74,7 @@ public class Main extends ListenerAdapter {
             event.getChannel().sendMessage("呼びました？").queue();
         }
 
-        if (event.getMessage().getContentRaw().startsWith(prefix + "checkstate")) {
+        if (event.getMessage().getContentRaw().startsWith(shortprefix + "jylookup")) {
             EmbedBuilder eb = new EmbedBuilder();
             eb.setTitle(":satellite_orbital: **JavayuuaStates**", null);
             eb.setColor(new Color(155, 255, 148));
