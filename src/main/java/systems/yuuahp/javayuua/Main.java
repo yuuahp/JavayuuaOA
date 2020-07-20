@@ -101,17 +101,7 @@ public class Main extends ListenerAdapter {
             }
 */
 
-             if (event.getMessage().getContentRaw().equals("/jy oa")) {
 
-             }
-             else {
-                 String ch = event.getChannel().getId();
-
-                 if(ch == "702161494141304832") {
-                     event.getMessage().delete().queue();
-
-                 }
-             }
 
             if (event.getMessage().getContentRaw().contains(shortprefix + "time")) {
 
@@ -178,8 +168,14 @@ public class Main extends ListenerAdapter {
                 String member = event.getAuthor().getId();
                 event.getGuild().addRoleToMember(member, role).queue();
                 event.getGuild().addRoleToMember(member, role2).queue();
+                event.getMessage().delete().queue();
                 event.getChannel().sendMessage("サーバールールを読んでいただきありがとうございました！\n**" + Name + "さん**、あなたに**閲覧権限**を付与しました！").queue();
             }
+            String ch = event.getMessage().getChannel().getId();
+            if(ch=="702161494141304832"){
+                event.getMessage().delete().queue();
+            }
+
 
             if (event.getMessage().getContentRaw().startsWith(prefix + "devreq")) {
                 String reqmsg = event.getMessage().getContentRaw();
