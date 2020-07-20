@@ -1,0 +1,2 @@
+# JavayuuaOA
+Killing氏のOAstudioで動作するJavayuuaOAのリポジトリです。
