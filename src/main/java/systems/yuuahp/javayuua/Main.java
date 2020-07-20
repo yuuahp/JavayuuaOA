@@ -98,20 +98,20 @@ public class Main extends ListenerAdapter {
         }
 
 
-        if (!event.getMessage().getContentRaw().equals("/jy oa") && !event.getMessage().getContentRaw().startsWith("サーバールールを")) {
-            if (event.getMember().getRoles().contains(686106681335218397L)){
+        //if (!event.getMessage().getContentRaw().equals("/jy oa") && !event.getMessage().getContentRaw().startsWith("サーバールールを")) {
+          //  if (event.getMember().getRoles().contains(686106681335218397L)){
 
-            }
-            if (event.getMember().getRoles().contains(712695118070808687L)){
+            //}
+            //if (event.getMember().getRoles().contains(712695118070808687L)){
 
-            }
-            else {
-                event.getMessage().delete().queue();
-            }
+            //}
+            //else {
+            //    event.getMessage().delete().queue();
+            //}
 
             //event.getMessage().delete().queue();
 
-        }
+        //}
 
 
 
