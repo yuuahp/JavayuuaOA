@@ -171,10 +171,7 @@ public class Main extends ListenerAdapter {
                 event.getMessage().delete().queue();
                 event.getChannel().sendMessage("サーバールールを読んでいただきありがとうございました！\n**" + Name + "さん**、あなたに**閲覧権限**を付与しました！").queue();
             }
-            String ch = event.getMessage().getChannel().getId();
-            if(ch=="702161494141304832"){
-                event.getMessage().delete().queue();
-            }
+
 
 
             if (event.getMessage().getContentRaw().startsWith(prefix + "devreq")) {
