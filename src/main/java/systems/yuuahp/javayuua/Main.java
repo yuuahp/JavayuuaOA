@@ -68,7 +68,7 @@ public class Main extends ListenerAdapter {
 
         long ziko = 720660907352653864L;
         event.getJDA().getTextChannelById(686474057771778069L).sendMessage(":cold_sweat: **"+user+"さん**がOAstudioを去りました....").queue();
-        event.getJDA().getTextChannelById(686102510330445923L).sendMessage(":cold_sweat: **"+user+"さん、また来てね....").queue();
+        event.getJDA().getTextChannelById(686102510330445923L).sendMessage(":cold_sweat: **"+user+"さん**、また来てね....").queue();
 
     }
 
