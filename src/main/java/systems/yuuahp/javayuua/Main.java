@@ -95,7 +95,7 @@ public class Main extends ListenerAdapter {
             if (event.getMember().getRoles().contains(712695118070808687L)) {
 
             } else {
-                if (event.getMessage().getChannel().equals("702161494141304832")) {
+                if (event.getMessage().getChannel().equals("<#702161494141304832>")) {
                     event.getMessage().delete().queue();
                 }
             }
