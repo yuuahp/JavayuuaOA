@@ -8,7 +8,7 @@ import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import net.dv8tion.jda.api.AccountType;
 import net.dv8tion.jda.api.JDABuilder;
-import systems.yuuahp.javayuua.Events.PushPin;
+
 
 
 import javax.security.auth.login.LoginException;
@@ -27,7 +27,6 @@ public class Main extends ListenerAdapter {
         JDABuilder builder = new JDABuilder(AccountType.BOT);
         String token;
         builder.addEventListeners(new Main());
-        builder.addEventListeners(new PushPin());
         token = System.getenv("token");
         builder.setToken(token);
 
@@ -73,16 +72,19 @@ public class Main extends ListenerAdapter {
         }
 
         if(event.getMessage().getContentRaw().startsWith(prefix+"checkstate")){
-            event.getChannel().sendMessage("私はOnlineですよ～").queue();
+            EmbedBuilder eb = new EmbedBuilder();
+            eb.setTitle(":satellite_orbital: **JavayuuaStates**",null);
+            eb.setColor(new Color(155, 255, 148));
+
+            eb.setDescription("States:**NowOnline!**");
+            event.getChannel().sendMessage(eb.build()).queue();
+
+            //event.getChannel().sendMessage("私はOnlineですよ～").queue();
         }
 
-        if(event.getMessage().getContentRaw().contains(shortprefix+"pingyuua")){
-            event.getChannel().sendMessage("ぽんぐ！(pong!)").queue();
-        }
 
-        if(event.getMessage().getContentRaw().startsWith("自己紹介してjavayuua")){
-            event.getChannel().sendMessage("**こんにちは！**\n私は**javayuua**と言います！\n色んな事が出来る多機能系BOTです。\n**DESTROY MEE6**\n.\n.\nよろしく！\nhttps://discordapp.com/channels/686102510330445875/686470299201306625/734075610678296618").queue();
-        }
+
+
 
 
 
@@ -181,9 +183,7 @@ public class Main extends ListenerAdapter {
         }
 
 
-        if(event.getMessage().getContentRaw().startsWith(prefix+"start")){
-            event.getChannel().sendMessage(":white_check_mark: **Javayuua is Ready!** :white_check_mark:").queue();
-        }
+
 
         if(event.getMessage().getContentRaw().startsWith(prefix+"restart")){
             event.getChannel().sendMessage(":octagonal_sign: **Javayuua Stoped** :octagonal_sign:").queue();
@@ -193,12 +193,13 @@ public class Main extends ListenerAdapter {
                 e.printStackTrace();
             }
 
+            //Javayuuaをリスタートする的なコード調べる
+
+
             event.getChannel().sendMessage(":white_check_mark: **Javayuua is Ready!** :white_check_mark:").queue();
         }
 
-        if(event.getMessage().getContentRaw().startsWith(prefix+"clear")){
-            event.getMessage().delete().queue();
-        }
+
 
 
         String s = event.getMessage().getContentRaw();
@@ -225,7 +226,7 @@ public class Main extends ListenerAdapter {
                 event.getTextChannel().sendMessage(":ledger: 消去数は10までです！申し訳ありません。").queue();
             }
         }
-        StringBuffer msgchat = new StringBuffer();
+
         if(event.getMessage().getContentRaw().startsWith(shortprefix+"chat")){
             String msg = event.getMessage().getContentRaw();
             //8
