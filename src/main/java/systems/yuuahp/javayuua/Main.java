@@ -86,7 +86,7 @@ public class Main extends ListenerAdapter {
         }
 
 
-        if (!event.getMessage().getContentRaw().equals("/jy oa") && !event.getMessage().getContentRaw().startsWith("サーバールールを")) {
+        /*if (event.getMessage().getContentRaw().equals("/jy oa") && event.getMessage().getContentRaw().startsWith("サーバールールを")) {
 
 
             if (event.getMember().getRoles().contains(686106681335218397L)) {
@@ -99,7 +99,19 @@ public class Main extends ListenerAdapter {
                     event.getMessage().delete().queue();
                 }
             }
+*/
 
+             if (event.getMessage().getContentRaw().equals("/jy oa")) {
+
+             }
+             else {
+                 String ch = event.getChannel().getId();
+
+                 if(ch == "702161494141304832") {
+                     event.getMessage().delete().queue();
+
+                 }
+             }
 
             if (event.getMessage().getContentRaw().contains(shortprefix + "time")) {
 
