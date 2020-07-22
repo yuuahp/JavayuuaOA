@@ -67,9 +67,10 @@ public class Main extends ListenerAdapter {
 
     }
 
+
     @Override
-    public void onGuildMessageReactionAdd(@Nonnull GuildMessageReactionAddEvent event) {
-        super.onGuildMessageReactionAdd(event);
+    public void onMessageReactionAdd(@Nonnull MessageReactionAddEvent event) {
+        super.onMessageReactionAdd(event);
         if(event.getReaction().equals(":pushpin:")){
             event.getChannel().sendMessage("test").queue();
         }
