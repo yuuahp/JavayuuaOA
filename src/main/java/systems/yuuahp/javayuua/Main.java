@@ -68,9 +68,8 @@ public class Main extends ListenerAdapter {
     }
 
 
-    @Override
-    public void onMessageReactionAdd(@Nonnull MessageReactionAddEvent event) {
-        super.onMessageReactionAdd(event);
+
+    public void onMessageReactionAdd(MessageReactionAddEvent event) {
         if(event.getReaction().equals(":pushpin:")){
             event.getChannel().sendMessage("test").queue();
         }
