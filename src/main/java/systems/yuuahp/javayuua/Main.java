@@ -69,8 +69,9 @@ public class Main extends ListenerAdapter {
 
 
 
+    @Override
     public void onMessageReactionAdd(MessageReactionAddEvent event) {
-        if(event.getReaction().equals(":pushpin:")){
+        if (event.getReactionEmote().getName().equals("\uD83D\uDCCC")){
             event.getChannel().sendMessage("test").queue();
         }
     }
