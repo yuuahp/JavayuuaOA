@@ -7,6 +7,7 @@ import net.dv8tion.jda.api.entities.Role;
 import net.dv8tion.jda.api.events.guild.member.GuildMemberJoinEvent;
 import net.dv8tion.jda.api.events.guild.member.GuildMemberLeaveEvent;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
+import net.dv8tion.jda.api.events.message.guild.react.GuildMessageReactionAddEvent;
 import net.dv8tion.jda.api.events.message.react.MessageReactionAddEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import net.dv8tion.jda.api.AccountType;
@@ -14,6 +15,7 @@ import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.hooks.SubscribeEvent;
 
 
+import javax.annotation.Nonnull;
 import javax.security.auth.login.LoginException;
 import java.awt.*;
 import java.util.*;
@@ -65,7 +67,13 @@ public class Main extends ListenerAdapter {
 
     }
 
-
+    @Override
+    public void onGuildMessageReactionAdd(@Nonnull GuildMessageReactionAddEvent event) {
+        super.onGuildMessageReactionAdd(event);
+        if(event.getReaction().equals(":pushpin:")){
+            event.getChannel().sendMessage("test").queue();
+        }
+    }
 
     public void onMessageReceived(MessageReceivedEvent event) {
         String[] args = new String[0];
