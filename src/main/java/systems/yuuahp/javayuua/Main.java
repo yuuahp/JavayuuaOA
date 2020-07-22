@@ -69,11 +69,11 @@ public class Main extends ListenerAdapter {
 
 
 
-
     @Override
     public void onMessageReactionAdd(MessageReactionAddEvent event) {
         if (event.getReactionEmote().getName().equals("\uD83D\uDCCC")){
-            String msgid = event.getReaction().getMessageId();
+            event.getChannel().sendMessage("リアクション検知！").queue();
+            String msgid = event.getMessageId();
             String msg = event.getTextChannel().getHistory().getMessageById(msgid).getContentRaw();
             event.getChannel().sendMessage(msg).queue();
         }
