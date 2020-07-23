@@ -270,7 +270,7 @@ public class Main extends ListenerAdapter {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-
+            editmsg.editMessage("**SUCCESS**").queue();
 
 
 
