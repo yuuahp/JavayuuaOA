@@ -213,7 +213,26 @@ public class Main extends ListenerAdapter {
             if (event.getMessage().getContentRaw().startsWith(prefix + "restart")) {
                 event.getChannel().sendMessage(":octagonal_sign: **Javayuua Stoped** :octagonal_sign:").queue();
                 try {
-                    Thread.sleep(3000);
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                event.getChannel().sendMessage("**3**").queue();
+                Message editmsg = event.getChannel().sendMessage("**3**").complete();]
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                editmsg.editMessage("**2**").queue();
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                editmsg.editMessage("**1**").queue();
+                try {
+                    Thread.sleep(1000);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
@@ -258,6 +277,7 @@ public class Main extends ListenerAdapter {
                 event.getChannel().sendMessage(cutmsg).queue();
 
             }
+
 
         }
 
