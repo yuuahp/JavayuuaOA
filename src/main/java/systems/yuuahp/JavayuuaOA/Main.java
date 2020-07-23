@@ -230,10 +230,49 @@ public class Main extends ListenerAdapter {
             }
             editmsg.editMessage("**RESTARTING....**").queue();
             try {
-                Thread.sleep(1000);
+                Thread.sleep(300);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
+            editmsg.editMessage("**#-----**").queue();
+            try {
+                Thread.sleep(100);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            editmsg.editMessage("**-#----**").queue();
+            try {
+                Thread.sleep(100);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            editmsg.editMessage("**--#---**").queue();
+            try {
+                Thread.sleep(100);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            editmsg.editMessage("**---#--**").queue();
+            try {
+                Thread.sleep(100);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            editmsg.editMessage("**----#-**").queue();
+            try {
+                Thread.sleep(100);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            editmsg.editMessage("**-----#**").queue();
+            try {
+                Thread.sleep(100);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            editmsg.editMessage("**SUCCESS**").queue();
+
+
 
 
             //Javayuuaをリスタートする的なコード調べる
