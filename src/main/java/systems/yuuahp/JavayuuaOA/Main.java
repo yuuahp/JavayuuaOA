@@ -218,7 +218,7 @@ public class Main extends ListenerAdapter {
                     e.printStackTrace();
                 }
                 event.getChannel().sendMessage("**3**").queue();
-                Message editmsg = event.getChannel().sendMessage("**3**").complete();]
+                Message editmsg = event.getChannel().sendMessage("**3**").complete();
                 try {
                     Thread.sleep(1000);
                 } catch (InterruptedException e) {
