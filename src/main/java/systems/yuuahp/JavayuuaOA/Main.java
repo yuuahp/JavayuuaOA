@@ -275,10 +275,18 @@ public class Main extends ListenerAdapter {
 
 
 
+
+
             //Javayuuaをリスタートする的なコード調べる
 
 
             event.getChannel().sendMessage(":white_check_mark: **Javayuua is Ready!** :white_check_mark:").queue();
+            EmbedBuilder eb = new EmbedBuilder();
+            eb.setTitle(":pencil: SUCCESSFULLY COMPLETED", null);
+            eb.setColor(new Color(246, 162, 255));
+            eb.setDescription("RESULT:All programs has been restarted");
+            event.getChannel().sendMessage(eb.build()).queue();
+
         }
 
 
@@ -315,6 +323,31 @@ public class Main extends ListenerAdapter {
                 event.getChannel().sendMessage(cutmsg).queue();
 
             }
+        if (event.getMessage().getContentRaw().startsWith(shortprefix + "afk")) {
+
+            String nick = event.getMember().getNickname();
+            if(nick==null){
+                String name = event.getMember().getUser().getName();
+                event.getMember().modifyNickname("[AFK!]"+name).queue();
+                event.getChannel().sendMessage(":mega: **"+name+"** is AFK!").queue();
+            }
+            else {
+                event.getMember().modifyNickname("[AFK!]"+nick).queue();
+                event.getChannel().sendMessage(":mega: **"+nick+"** is AFK!").queue();
+            }
+
+
+
+        }
+        if (event.getMessage().getContentRaw().startsWith(shortprefix + "unafk")) {
+
+            String nick = event.getMember().getNickname();
+            String cutnick = nick.substring(6);
+            event.getMember().modifyNickname(cutnick).queue();
+            event.getChannel().sendMessage(":mega: **"+cutnick+"** is ONLINE!").queue();
+
+
+        }
 
 
         }
