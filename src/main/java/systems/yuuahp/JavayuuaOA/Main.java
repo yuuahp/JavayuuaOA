@@ -3,6 +3,7 @@ package systems.yuuahp.JavayuuaOA;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.entities.Message;
 import net.dv8tion.jda.api.entities.Role;
+import net.dv8tion.jda.api.entities.VoiceChannel;
 import net.dv8tion.jda.api.events.guild.member.GuildMemberJoinEvent;
 import net.dv8tion.jda.api.events.guild.member.GuildMemberLeaveEvent;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
@@ -10,6 +11,7 @@ import net.dv8tion.jda.api.events.message.react.MessageReactionAddEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import net.dv8tion.jda.api.AccountType;
 import net.dv8tion.jda.api.JDABuilder;
+import net.dv8tion.jda.api.managers.AudioManager;
 
 
 import javax.security.auth.login.LoginException;
@@ -114,7 +116,7 @@ public class Main extends ListenerAdapter {
 
 
 
-            if (event.getMessage().getContentRaw().contains(shortprefix + "time")) {
+            if (event.getMessage().getContentRaw().equals(shortprefix + "time")) {
 
                 // 現在日時情報で初期化されたインスタンスの生成
                 Date dateObj = new Date();
@@ -348,13 +350,36 @@ public class Main extends ListenerAdapter {
 
 
         }
+        if (event.getMessage().getContentRaw().startsWith(shortprefix + "timer")) {
+            String msg = event.getMessage().getContentRaw();
+            String cutmsg = msg.substring(7);
+            int i = Integer.parseInt(cutmsg);
+            int i2 = i*1000;
+
+            EmbedBuilder eb = new EmbedBuilder();
+            eb.setTitle(":stopwatch: Timer Started! ("+i+"s)", null);
+            eb.setColor(new Color(246, 162, 255));
+            event.getChannel().sendMessage(eb.build()).queue();
 
 
+            try {
+                Thread.sleep(i2);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            EmbedBuilder eb2 = new EmbedBuilder();
+            eb2.setTitle(":stopwatch: TIME OVER! ("+i+"s)", null);
+            eb2.setColor(new Color(246, 162, 255));
+            event.getChannel().sendMessage(eb2.build()).queue();
         }
 
 
 
     }
+
+
+
+}
 
 
 
