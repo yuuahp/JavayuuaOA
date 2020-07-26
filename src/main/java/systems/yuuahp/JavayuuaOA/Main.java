@@ -12,9 +12,8 @@ import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import net.dv8tion.jda.api.AccountType;
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.hooks.SubscribeEvent;
+import systems.yuuahp.JavayuuaOA.Command.*;
 import systems.yuuahp.JavayuuaOA.Reply.rply_HelloWorld;
-import systems.yuuahp.JavayuuaOA.Command.cmd_Timer;
-import systems.yuuahp.JavayuuaOA.Command.cmd_jyLookUP;
 import systems.yuuahp.JavayuuaOA.Reply.rply_calljavayuua;
 
 
@@ -30,21 +29,26 @@ public class Main extends ListenerAdapter {
 
 
     public static void main(String[] args) throws LoginException {
-
         JDABuilder builder = new JDABuilder(AccountType.BOT);
         String token;
         builder.setEventManager(new AnnotatedEventManager());
-        builder.addEventListeners(new Main());
+
+        builder.addEventListeners(new rply_calljavayuua());
         builder.addEventListeners(new rply_HelloWorld());
+
+        builder.addEventListeners(new Main());
         builder.addEventListeners(new cmd_Timer());
         builder.addEventListeners(new cmd_jyLookUP());
-        builder.addEventListeners(new rply_calljavayuua());
+        builder.addEventListeners(new cmd_Clear());
+        builder.addEventListeners(new cmd_Time());
+        builder.addEventListeners(new cmd_restart());
+        builder.addEventListeners(new cmd_Chat());
+        
+
+
         token = System.getenv("token");
         builder.setToken(token);
-
         builder.build();
-
-
     }
 
     public String prefix = "/jy ";
@@ -53,25 +57,13 @@ public class Main extends ListenerAdapter {
     public StringBuffer jyidch = new StringBuffer();
 @SubscribeEvent
     public void onGuildMemberJoin(GuildMemberJoinEvent event) {
-
         String user = event.getMember().getUser().getName();
-
-
-
-
         event.getJDA().getTextChannelById(686102510330445923L).sendMessage(":tada:**" + user + "さん！**ようこそ**OAstudio**へ！\n下のチャンネルでサーバールールをよく読み、**閲覧権限**を入手しましょう！\n閲覧権限をもらったら **自己紹介**を書いてみましょう！").queue();
-
     }
 @SubscribeEvent
     public void onGuildMemberLeave(GuildMemberLeaveEvent event) {
-
         String user = event.getMember().getUser().getName();
-
-
-
-
         event.getJDA().getTextChannelById(686102510330445923L).sendMessage(":cold_sweat: **" + user + "さん**、また来てね....").queue();
-
     }
 
 
@@ -114,18 +106,7 @@ public class Main extends ListenerAdapter {
 
 
 
-            if (event.getMessage().getContentRaw().equals(shortprefix + "time")) {
 
-                // 現在日時情報で初期化されたインスタンスの生成
-                Date dateObj = new Date();
-                TimeZone tzn1 = TimeZone.getDefault();//[1]
-                Calendar cal1 = Calendar.getInstance(tzn1);//[2]
-                TimeZone tzn2 = TimeZone.getTimeZone("Asia/Tokyo");
-                cal1.setTimeZone(tzn2);//[6]
-
-
-                event.getChannel().sendMessage("現在時刻は" + cal1.get(Calendar.HOUR_OF_DAY) + ":" + cal1.get(Calendar.MINUTE) + "です！").queue();
-            }
 
 
             if (event.getMessage().getContentRaw().startsWith(prefix + "emojisubmit")) {
@@ -195,125 +176,12 @@ public class Main extends ListenerAdapter {
 
             //}
 
-        if (event.getMessage().getContentRaw().startsWith(prefix + "restart")) {
-            event.getChannel().sendMessage(":octagonal_sign: **Javayuua Stoped** :octagonal_sign:").queue();
-
-
-            Message editmsg = event.getChannel().sendMessage("**3**").complete();
-
-            editmsg.editMessage("**3**").queue();
-            try {
-                Thread.sleep(1000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-            editmsg.editMessage("**2**").queue();
-            try {
-                Thread.sleep(1000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-            editmsg.editMessage("**1**").queue();
-            try {
-                Thread.sleep(1000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-            editmsg.editMessage("**RESTARTING....**").queue();
-            try {
-                Thread.sleep(300);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-            editmsg.editMessage("**#-----**").queue();
-            try {
-                Thread.sleep(100);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-            editmsg.editMessage("**-#----**").queue();
-            try {
-                Thread.sleep(100);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-            editmsg.editMessage("**--#---**").queue();
-            try {
-                Thread.sleep(100);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-            editmsg.editMessage("**---#--**").queue();
-            try {
-                Thread.sleep(100);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-            editmsg.editMessage("**----#-**").queue();
-            try {
-                Thread.sleep(100);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-            editmsg.editMessage("**-----#**").queue();
-            try {
-                Thread.sleep(100);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-            editmsg.editMessage("**SUCCESS**").queue();
 
 
 
 
 
 
-            //Javayuuaをリスタートする的なコード調べる
-
-
-            event.getChannel().sendMessage(":white_check_mark: **Javayuua is Ready!** :white_check_mark:").queue();
-            EmbedBuilder eb = new EmbedBuilder();
-            eb.setTitle(":pencil: SUCCESSFULLY COMPLETED", null);
-            eb.setColor(new Color(246, 162, 255));
-            eb.setDescription("RESULT:All programs has been restarted");
-            event.getChannel().sendMessage(eb.build()).queue();
-
-        }
-
-
-            String s = event.getMessage().getContentRaw();
-            if (s.startsWith(shortprefix + "clear")) {
-                String[] ss = event.getMessage().getContentRaw().split(" ");
-                int i = Integer.parseInt(ss[1]);
-                int is = i + 1;
-                if (is <= 10 && is > 0) {
-                    List<Message> messages = event.getTextChannel().getHistory().retrievePast(is).complete();
-                    for (Message m : messages) {
-                        m.delete().queue();
-                    }
-                    String name = event.getMember().getUser().getName();
-
-
-                    EmbedBuilder eb = new EmbedBuilder();
-                    eb.setTitle(":pencil: メッセージを削除しました。", null);
-                    eb.setColor(new Color(246, 162, 255));
-                    eb.setDescription("**" + name + "さん** - " + is + "メッセージ");
-                    event.getChannel().sendMessage(eb.build()).queue();
-
-                    //event.getChannel().sendMessage("-----------------\n:pencil: "+i+"メッセージを**削除**しました。("+name+")\n-----------------").queue();
-                } else {
-                    event.getTextChannel().sendMessage(":ledger: 消去数は10までです！申し訳ありません。").queue();
-                }
-            }
-
-            if (event.getMessage().getContentRaw().startsWith(shortprefix + "chat")) {
-                String msg = event.getMessage().getContentRaw();
-                //8
-                String cutmsg = msg.substring(5);
-                event.getMessage().delete().queue();
-                event.getChannel().sendMessage(cutmsg).queue();
-
-            }
         if (event.getMessage().getContentRaw().startsWith(shortprefix + "afk")) {
 
             String nick = event.getMember().getNickname();
