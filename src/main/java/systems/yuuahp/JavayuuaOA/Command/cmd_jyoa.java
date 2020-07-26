@@ -2,10 +2,12 @@ package systems.yuuahp.JavayuuaOA.Command;
 
 import net.dv8tion.jda.api.entities.Role;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
+import net.dv8tion.jda.api.hooks.SubscribeEvent;
 
 public class cmd_jyoa {
+    @SubscribeEvent
     public void onMessageReceived(MessageReceivedEvent event) {
-        String prefix = "/jy";
+        String prefix = "/jy ";
         if (event.getMessage().getContentRaw().startsWith(prefix + "oa")) {
             Role role = event.getGuild().getRoleById(686103774691065871L);
             Role role2 = event.getGuild().getRoleById(720326371217244321L);
