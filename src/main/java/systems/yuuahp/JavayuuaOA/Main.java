@@ -12,6 +12,7 @@ import net.dv8tion.jda.api.hooks.AnnotatedEventManager;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import net.dv8tion.jda.api.AccountType;
 import net.dv8tion.jda.api.JDABuilder;
+import net.dv8tion.jda.api.hooks.SubscribeEvent;
 import net.dv8tion.jda.api.managers.AudioManager;
 import systems.yuuahp.JavayuuaOA.Command.HelloWorld;
 import systems.yuuahp.JavayuuaOA.Command.Timer;
@@ -82,7 +83,7 @@ public class Main extends ListenerAdapter {
             event.getChannel().sendMessage(msg).queue();
         }
     }
-@Override
+    @SubscribeEvent
     public void onMessageReceived(MessageReceivedEvent event) {
         String[] args = new String[0];
         System.out.println("Received->" +
