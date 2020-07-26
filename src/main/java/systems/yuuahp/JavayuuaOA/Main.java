@@ -16,6 +16,7 @@ import net.dv8tion.jda.api.hooks.SubscribeEvent;
 import net.dv8tion.jda.api.managers.AudioManager;
 import systems.yuuahp.JavayuuaOA.Command.HelloWorld;
 import systems.yuuahp.JavayuuaOA.Command.Timer;
+import systems.yuuahp.JavayuuaOA.Command.jyLookUP;
 
 
 import javax.security.auth.login.LoginException;
@@ -37,6 +38,7 @@ public class Main extends ListenerAdapter {
         builder.addEventListeners(new Main());
         builder.addEventListeners(new HelloWorld());
         builder.addEventListeners(new Timer());
+        builder.addEventListeners(new jyLookUP());
         token = System.getenv("token");
         builder.setToken(token);
 
@@ -94,16 +96,7 @@ public class Main extends ListenerAdapter {
             event.getChannel().sendMessage("呼びました？").queue();
         }
 
-        if (event.getMessage().getContentRaw().startsWith(shortprefix + "jylookup")) {
-            EmbedBuilder eb = new EmbedBuilder();
-            eb.setTitle(":satellite_orbital: **JavayuuaStates**", null);
-            eb.setColor(new Color(155, 255, 148));
 
-            eb.setDescription("States:**NowOnline!**");
-            event.getChannel().sendMessage(eb.build()).queue();
-
-            //event.getChannel().sendMessage("私はOnlineですよ～").queue();
-        }
 
 
         /*if (event.getMessage().getContentRaw().equals("/jy oa") && event.getMessage().getContentRaw().startsWith("サーバールールを")) {
