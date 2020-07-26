@@ -6,7 +6,7 @@ import net.dv8tion.jda.api.hooks.SubscribeEvent;
 
 import java.awt.*;
 
-public class jyLookUP {
+public class cmd_jyLookUP {
     @SubscribeEvent
     public void onMessageReceived(MessageReceivedEvent event) {
         String shortprefix = "/";

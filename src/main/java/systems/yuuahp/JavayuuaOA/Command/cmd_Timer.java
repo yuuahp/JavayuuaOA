@@ -7,7 +7,7 @@ import net.dv8tion.jda.api.hooks.SubscribeEvent;
 import java.awt.*;
 
 
-public class Timer {
+public class cmd_Timer {
 @SubscribeEvent
     public void onMessageReceived(MessageReceivedEvent event) {
         String shortprefix = "/";

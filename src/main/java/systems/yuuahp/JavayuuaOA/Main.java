@@ -3,7 +3,6 @@ package systems.yuuahp.JavayuuaOA;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.entities.Message;
 import net.dv8tion.jda.api.entities.Role;
-import net.dv8tion.jda.api.entities.VoiceChannel;
 import net.dv8tion.jda.api.events.guild.member.GuildMemberJoinEvent;
 import net.dv8tion.jda.api.events.guild.member.GuildMemberLeaveEvent;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
@@ -13,10 +12,9 @@ import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import net.dv8tion.jda.api.AccountType;
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.hooks.SubscribeEvent;
-import net.dv8tion.jda.api.managers.AudioManager;
-import systems.yuuahp.JavayuuaOA.Command.HelloWorld;
-import systems.yuuahp.JavayuuaOA.Command.Timer;
-import systems.yuuahp.JavayuuaOA.Command.jyLookUP;
+import systems.yuuahp.JavayuuaOA.Reply.rply_HelloWorld;
+import systems.yuuahp.JavayuuaOA.Command.cmd_Timer;
+import systems.yuuahp.JavayuuaOA.Command.cmd_jyLookUP;
 
 
 import javax.security.auth.login.LoginException;
@@ -36,9 +34,9 @@ public class Main extends ListenerAdapter {
         String token;
         builder.setEventManager(new AnnotatedEventManager());
         builder.addEventListeners(new Main());
-        builder.addEventListeners(new HelloWorld());
-        builder.addEventListeners(new Timer());
-        builder.addEventListeners(new jyLookUP());
+        builder.addEventListeners(new rply_HelloWorld());
+        builder.addEventListeners(new cmd_Timer());
+        builder.addEventListeners(new cmd_jyLookUP());
         token = System.getenv("token");
         builder.setToken(token);
 
