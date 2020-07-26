@@ -8,10 +8,12 @@ import net.dv8tion.jda.api.events.guild.member.GuildMemberJoinEvent;
 import net.dv8tion.jda.api.events.guild.member.GuildMemberLeaveEvent;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.api.events.message.react.MessageReactionAddEvent;
+import net.dv8tion.jda.api.hooks.AnnotatedEventManager;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import net.dv8tion.jda.api.AccountType;
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.managers.AudioManager;
+import systems.yuuahp.JavayuuaOA.Command.HelloWorld;
 
 
 import javax.security.auth.login.LoginException;
@@ -29,7 +31,9 @@ public class Main extends ListenerAdapter {
 
         JDABuilder builder = new JDABuilder(AccountType.BOT);
         String token;
+        builder.setEventManager(new AnnotatedEventManager());
         builder.addEventListeners(new Main());
+        builder.addEventListeners(new HelloWorld());
         token = System.getenv("token");
         builder.setToken(token);
 
