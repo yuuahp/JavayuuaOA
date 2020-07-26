@@ -51,7 +51,7 @@ public class Main extends ListenerAdapter {
     public String shortprefix = "/";
     public StringBuffer jyidq = new StringBuffer();
     public StringBuffer jyidch = new StringBuffer();
-
+@SubscribeEvent
     public void onGuildMemberJoin(GuildMemberJoinEvent event) {
 
         String user = event.getMember().getUser().getName();
@@ -62,7 +62,7 @@ public class Main extends ListenerAdapter {
         event.getJDA().getTextChannelById(686102510330445923L).sendMessage(":tada:**" + user + "さん！**ようこそ**OAstudio**へ！\n下のチャンネルでサーバールールをよく読み、**閲覧権限**を入手しましょう！\n閲覧権限をもらったら **自己紹介**を書いてみましょう！").queue();
 
     }
-
+@SubscribeEvent
     public void onGuildMemberLeave(GuildMemberLeaveEvent event) {
 
         String user = event.getMember().getUser().getName();
@@ -76,7 +76,7 @@ public class Main extends ListenerAdapter {
 
 
 
-    @Override
+    @SubscribeEvent
     public void onMessageReactionAdd(MessageReactionAddEvent event) {
         if (event.getReactionEmote().getName().equals("\uD83D\uDCCC")){
             event.getChannel().sendMessage("リアクション検知！").queue();
