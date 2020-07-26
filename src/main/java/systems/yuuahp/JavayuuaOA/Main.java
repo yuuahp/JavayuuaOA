@@ -58,7 +58,7 @@ public class Main extends ListenerAdapter {
 
 
 
-        event.getJDA().getTextChannelById(686474057771778069L).sendMessage(":tada:**" + user + "さん**がOAstudioに参加しました！").queue();
+
         event.getJDA().getTextChannelById(686102510330445923L).sendMessage(":tada:**" + user + "さん！**ようこそ**OAstudio**へ！\n下のチャンネルでサーバールールをよく読み、**閲覧権限**を入手しましょう！\n閲覧権限をもらったら **自己紹介**を書いてみましょう！").queue();
 
     }
@@ -69,7 +69,7 @@ public class Main extends ListenerAdapter {
 
 
 
-        event.getJDA().getTextChannelById(686474057771778069L).sendMessage(":cold_sweat: **" + user + "さん**がOAstudioを去りました....").queue();
+
         event.getJDA().getTextChannelById(686102510330445923L).sendMessage(":cold_sweat: **" + user + "さん**、また来てね....").queue();
 
     }
