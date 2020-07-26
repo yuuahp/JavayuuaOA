@@ -82,7 +82,7 @@ public class Main extends ListenerAdapter {
             event.getChannel().sendMessage(msg).queue();
         }
     }
-
+@Override
     public void onMessageReceived(MessageReceivedEvent event) {
         String[] args = new String[0];
         System.out.println("Received->" +
