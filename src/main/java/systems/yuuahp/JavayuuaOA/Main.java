@@ -15,6 +15,7 @@ import net.dv8tion.jda.api.hooks.SubscribeEvent;
 import systems.yuuahp.JavayuuaOA.Reply.rply_HelloWorld;
 import systems.yuuahp.JavayuuaOA.Command.cmd_Timer;
 import systems.yuuahp.JavayuuaOA.Command.cmd_jyLookUP;
+import systems.yuuahp.JavayuuaOA.Reply.rply_calljavayuua;
 
 
 import javax.security.auth.login.LoginException;
@@ -37,6 +38,7 @@ public class Main extends ListenerAdapter {
         builder.addEventListeners(new rply_HelloWorld());
         builder.addEventListeners(new cmd_Timer());
         builder.addEventListeners(new cmd_jyLookUP());
+        builder.addEventListeners(new rply_calljavayuua());
         token = System.getenv("token");
         builder.setToken(token);
 
@@ -90,9 +92,7 @@ public class Main extends ListenerAdapter {
                 event.getAuthor().getName() + ":" +
                 event.getMessage().getContentDisplay()
         );
-        if (event.getMessage().getContentRaw().startsWith("javayuua")) {
-            event.getChannel().sendMessage("呼びました？").queue();
-        }
+
 
 
 
