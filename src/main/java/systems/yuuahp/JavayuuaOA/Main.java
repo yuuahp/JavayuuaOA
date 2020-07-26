@@ -14,6 +14,7 @@ import net.dv8tion.jda.api.AccountType;
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.managers.AudioManager;
 import systems.yuuahp.JavayuuaOA.Command.HelloWorld;
+import systems.yuuahp.JavayuuaOA.Command.Timer;
 
 
 import javax.security.auth.login.LoginException;
@@ -34,6 +35,7 @@ public class Main extends ListenerAdapter {
         builder.setEventManager(new AnnotatedEventManager());
         builder.addEventListeners(new Main());
         builder.addEventListeners(new HelloWorld());
+        builder.addEventListeners(new Timer());
         token = System.getenv("token");
         builder.setToken(token);
 
