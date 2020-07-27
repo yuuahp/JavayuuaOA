@@ -44,6 +44,7 @@ public class Main extends ListenerAdapter {
         builder.addEventListeners(new cmd_restart());
         builder.addEventListeners(new cmd_Chat());
         builder.addEventListeners(new cmd_jyoa());
+        builder.addEventListeners(new cmd_SetStates_Play());
 
 
 

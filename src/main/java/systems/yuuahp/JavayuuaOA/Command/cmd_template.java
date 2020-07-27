@@ -11,6 +11,9 @@ public class cmd_template {
     public void onMessageReceived(MessageReceivedEvent event) {
         String shortprefix = "/";
         String prefix = "/jy ";
+        if (event.getMessage().getContentRaw().startsWith(shortprefix + "")) {
+
+        }
 
     }
 
