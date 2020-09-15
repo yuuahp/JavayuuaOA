@@ -7,3 +7,5 @@
 
 Killing氏のOAstudioで動作するJavayuuaOAのリポジトリです。
 現在はすべてのサーバーでJavayuua5に統合し、このJavayuuaOAは非常用botとして運用されています
+
+※後継のJavayuua5は現在プライベートリポジトリです。
