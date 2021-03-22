@@ -6,6 +6,6 @@
 ![](https://img.shields.io/badge/License-NoLicense-yellow)
 
 Killing氏のOAstudioで動作するJavayuuaOAのリポジトリです。
-現在はすべてのサーバーでJavayuua5に統合し、このJavayuuaOAは非常用botとして運用されています
+現在はすべてのサーバーでJavayuua5&OASystemに統合し、このJavayuuaOAは非常用botとして運用されています
 
 ※後継のJavayuua5は現在プライベートリポジトリです。
